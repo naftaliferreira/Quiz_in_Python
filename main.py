@@ -4,12 +4,25 @@ from tkinter import PhotoImage
 import pandas as pd
 import random
 
-# ler arquivo
-df = pd.read_excel('questoes.xlsx')
-question = df.sample(n=10).values.tolist()
+# carregar arquivo excel
+df = pd.read_excel('questions.xlsx')
+
+# pegar as perguntas aleatóriamente
+questions = df.sample(n=10).values.tolist()
+
+# variáveis globais
+score = 0
+current_question = 0
+
+# função para exibir a próxima pergunta
+
+
+def display_question():
+    question, option1, option2, option3, option4, answer = questions[current_question]
+    question_label.config(text=question)
+
 
 # interface gráfica
-
 janela = tk.Tk()
 janela.title('Quiz')
 janela.geometry("400x450")
@@ -30,7 +43,7 @@ app_label = tk.Label(janela, image=app_icon, bg=background_color)
 app_label.pack(pady=10)
 
 # componentes da interface
-question_label = tk.Label(janela, text="Pergunta", wraplength=380,
+question_label = tk.Label(janela, text="", wraplength=380,
                           bg=background_color, fg=text_color, font=("Arial", 12, "bold"))
 question_label.pack(pady=20)
 
@@ -56,5 +69,6 @@ play_again_btn = tk.Button(janela, text="Jogar novamente", width=30,
                            bg=button_color, fg=button_text_color, font=("Arial", 10, "bold"))
 play_again_btn.pack(pady=10)
 
+display_question()
 
 janela.mainloop()
