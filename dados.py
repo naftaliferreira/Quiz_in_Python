@@ -38,10 +38,10 @@ questoes = [
 ]
 
 # criar dataframe do pandas
-df = pd.dataframe(questoes, columns=[
+df = pd.DataFrame(questoes, columns=[
                   "Perguntas", "Opção 1", "Opção 2", "Opção 3", "Opção 4", "Resposta"])
 
 # Salvar no arquivo excel
-df.to_excel("questao.xlsx", index=False)
+df.to_excel("questoes.xlsx", index=False)
 
 print("Perguntas inseridas com sucesso!")
