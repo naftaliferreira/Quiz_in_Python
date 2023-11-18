@@ -40,5 +40,21 @@ option1_btn = tk.Button(janela, text="", width=30,
                         bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
 option1_btn.pack(pady=10)
 
+option2_btn = tk.Button(janela, text="", width=30,
+                        bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
+option2_btn.pack(pady=10)
+
+option3_btn = tk.Button(janela, text="", width=30,
+                        bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
+option3_btn.pack(pady=10)
+
+option4_btn = tk.Button(janela, text="", width=30,
+                        bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
+option4_btn.pack(pady=10)
+
+play_again_btn = tk.Button(janela, text="Jogar novamente", width=30,
+                           bg=button_color, fg=button_text_color, font=("Arial", 10, "bold"))
+play_again_btn.pack(pady=10)
+
 
 janela.mainloop()
