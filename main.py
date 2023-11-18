@@ -28,7 +28,7 @@ def check_answer(answer):
     if current_question < len(questions):
         display_question()
     else:
-        pass
+        show_result()
 
 
 # função para exibir a próxima pergunta
@@ -46,6 +46,32 @@ def display_question():
                        command=lambda: check_answer(4))
 
     correct_answer.set(answer)
+
+# função para exibir o resultado final
+
+
+def show_result():
+    messagebox.showinfo(
+        "Quiz Finalizado", f"Parabéns! Você completou o quiz.\n\nPontuação final: {score}/{len(questions)}")
+    option1_btn.config(state=tk.DISABLED)
+    option2_btn.config(state=tk.DISABLED)
+    option3_btn.config(state=tk.DISABLED)
+    option4_btn.config(state=tk.DISABLED)
+    play_again_btn.pack()
+
+# Função para jogar novamente
+
+
+def play_again():
+    global score, current_question
+    score = 0
+    current_question = 0
+    random.shuffle(questions)
+    option1_btn.config(state=tk.NORMAL)
+    option2_btn.config(state=tk.NORMAL)
+    option3_btn.config(state=tk.NORMAL)
+    option4_btn.config(state=tk.NORMAL)
+    play_again_btn.pack_forget()
 
 
 # interface gráfica
@@ -91,10 +117,11 @@ option4_btn = tk.Button(janela, text="", width=30,
                         bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
 option4_btn.pack(pady=10)
 
-play_again_btn = tk.Button(janela, text="Jogar novamente", width=30,
+play_again_btn = tk.Button(janela, command=play_again, text="Jogar novamente", width=30,
                            bg=button_color, fg=button_text_color, font=("Arial", 10, "bold"))
 
 
 display_question()
+
 
 janela.mainloop()
