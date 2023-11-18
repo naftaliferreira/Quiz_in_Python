@@ -19,6 +19,7 @@ janela.geometry("400x450")
 background_color = "#ECECEC"
 text_color = "#333333"
 button_color = "#4CAF50"
+button_text_color = "#FFFFFF"
 
 janela.config(bg=background_color)
 janela.option_add('*Font', 'Arial')
@@ -32,6 +33,12 @@ app_label.pack(pady=10)
 question_label = tk.Label(janela, text="Pergunta", wraplength=380,
                           bg=background_color, fg=text_color, font=("Arial", 12, "bold"))
 question_label.pack(pady=20)
+
+correct_answer = tk.IntVar()
+
+option1_btn = tk.Button(janela, text="", width=30,
+                        bg=button_color, fg=button_text_color, state=tk.DISABLED, font=("Arial", 10, "bold"))
+option1_btn.pack(pady=10)
 
 
 janela.mainloop()
